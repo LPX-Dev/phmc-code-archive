@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/react-gh-pages/static/css/main.82ab872c.css",
-    "main.js": "/react-gh-pages/static/js/main.9996602f.js",
-    "static/js/453.ed3810f9.chunk.js": "/react-gh-pages/static/js/453.ed3810f9.chunk.js",
-    "index.html": "/react-gh-pages/index.html",
-    "main.82ab872c.css.map": "/react-gh-pages/static/css/main.82ab872c.css.map",
-    "main.9996602f.js.map": "/react-gh-pages/static/js/main.9996602f.js.map",
-    "453.ed3810f9.chunk.js.map": "/react-gh-pages/static/js/453.ed3810f9.chunk.js.map"
+    "main.css": "/phmc-death-report/static/css/main.82ab872c.css",
+    "main.js": "/phmc-death-report/static/js/main.594f9eff.js",
+    "static/js/453.ed3810f9.chunk.js": "/phmc-death-report/static/js/453.ed3810f9.chunk.js",
+    "index.html": "/phmc-death-report/index.html",
+    "main.82ab872c.css.map": "/phmc-death-report/static/css/main.82ab872c.css.map",
+    "main.594f9eff.js.map": "/phmc-death-report/static/js/main.594f9eff.js.map",
+    "453.ed3810f9.chunk.js.map": "/phmc-death-report/static/js/453.ed3810f9.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.82ab872c.css",
-    "static/js/main.9996602f.js"
+    "static/js/main.594f9eff.js"
   ]
 }
