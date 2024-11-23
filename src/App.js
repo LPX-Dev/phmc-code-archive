@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import './App.css';
 
+
 function App() {
   const [formData, setFormData] = useState({
     jobClassification: 'Forensic Attendant',
@@ -28,6 +29,7 @@ function App() {
     });
   };
 
+  
   const departmentFullName = (abbreviation) => {
     switch (abbreviation) {
       case 'LSPD':
@@ -39,9 +41,13 @@ function App() {
       case 'PHMC':
         return 'Pillbox Hill Medical Center';
       case 'SANFIRE':
-        return 'State Fire Marshal';
+        return 'San Andreas Department of Forestry and Fire Protection';
       case 'SADCR':
         return 'San Andreas Department of Corrections and Rehabilitation';
+      case 'LSGOV':
+        return 'Los Santos City Government';
+      case '911 Call':
+        return 'Emergency 911 Dispatch Center';
       default:
         return '';
     }
@@ -91,13 +97,14 @@ ${scenePhotosBBCode}
 
 [divbox=transparent][center][color=Black][size=85][b][u](( OUT OF CHARACTER ))[/u][/b][/size][/center][/color][hr][/hr]
 [size=75] This section clarifies whether or not if the player was character killed or player killed. 
-In this case the player was; ${typeOfDeath}
+In this case the player was; ${typeOfDeath}[/size]
 
-[morgue screen, cinjuries, cdna links: ${additionalImagesBBCode}][/size][/divbox]
-
+[morgue screen, cinjuries, cdna links: 
+${additionalImagesBBCode}
+[/divbox]
 [center][b]C. STATEMENT[/b][/center]
 
-[divbox=transparent][center][color=Black][size=85]As a ${jobClassification}, I have made detailed notes of my findings and conclusions, and these notes are available for review if necessary. However, I must note that these notes do not contain any personal opinions and are solely based on the evidence and facts available to me.
+[divbox=transparent][center][size=85]As a ${jobClassification}, I have made detailed notes of my findings and conclusions, and these notes are available for review if necessary. However, I must note that these notes do not contain any personal opinions and are solely based on the evidence and facts available to me.
 
 In conclusion, I hope that this report provides the necessary information required for the agency to move forward with any necessary actions. Please let me know if you require any additional information or if I can be of further assistance.
 
@@ -105,7 +112,7 @@ I certify that the information contained in this report is true and accurate to 
 
 [center][b]D. PRIVACY AND CONFIDENTIALITY[/b][/center]
 
-[divbox=transparent][center][color=Black][size=85]This document from the Forensic Medicine and Pathology Department of Pillbox Hill Medical Center certifies the authenticity of the information contained within. Any unauthorized distribution or use of this information is in violation of the Health Insurance Portability and Accountability Act (HIPAA), as well as state and federal privacy laws, including but not limited to the San Andreas Confidentiality of Medical Information Act (CMIA) and the San Andreas Information Practices Act (IPA).
+[divbox=transparent][center][size=85]This document from the Forensic Medicine and Pathology Department of Pillbox Hill Medical Center certifies the authenticity of the information contained within. Any unauthorized distribution or use of this information is in violation of the Health Insurance Portability and Accountability Act (HIPAA), as well as state and federal privacy laws, including but not limited to the San Andreas Confidentiality of Medical Information Act (CMIA) and the San Andreas Information Practices Act (IPA).
 
 It is imperative that all parties handling this document respect the privacy and confidentiality of the decedent and their family. Any violation of these laws may result in legal action being taken against the responsible parties.
 
@@ -119,19 +126,49 @@ This document is provided for official purposes only and is not to be construed 
     const date = new Date(dateTime).toLocaleDateString('en-US');
     return `[${typeOfDeath}] ${decedentName} ((${decedentOOC})) - ${date}`;
   };
-
   return (
     <div className="App">
       <div className="container">
         <div className="form-container">
           <h2>Death Investigation Report Form</h2>
+         <a href="https://www.github.com/lpx-dev/phmc-death-report" target="_blank" rel="noopener noreferrer">
+            <h5>This website is fully open source and was made by Fr0sty, you can report bugs in the PHMC Discord.</h5>
+          </a> 
+          <details>
+            <summary>Change Log - 1.2</summary>
+            <ul>
+              <li>Refactored app, rewrote various sections. </li>
+              <li>- frosty</li>
+            </ul>
+          </details>  
+          <button type="button" onClick={() => {
+            const title = generateTitle();
+            navigator.clipboard.writeText(title).then(() => {
+              window.open('https://phmc.gta.world/posting.php?mode=post&f=267', '_blank');
+            });
+        }}>
+    Create Death Investigation Topic
+</button>
+<button type="button" onClick={() => {
+                        const title = generateTitle();
+                        navigator.clipboard.writeText(title).then(() => {
+                            window.open('https://lpx-dev.github.io/phmc-email-generator/', '_blank');
+                        });
+                    }}>
+                      PHMC Email Generator
+                    </button>
           <form>
             <label>
               Job Classification:
               <select name="jobClassification" value={formData.jobClassification} onChange={handleChange} required>
                 <option value="Forensic Attendant">Forensic Attendant</option>
+                <option value="Supervising Forensic Attendant">Supervising Forensic Attendant</option>
                 <option value="Coroner Investigator">Coroner Investigator</option>
+                <option value="Supervising Coroner Investigator">Supervising Coroner Investigator</option>
                 <option value="Medical Examiner">Medical Examiner</option>
+                <option value="Supervising Medical Examiner">Supervising Medical Examiner</option>
+                <option value="Deputy Chief Medical Examiner">Deputy Chief Medical Examiner</option>
+                <option value="Chief Medical Examiner">Chief Medical Examiner</option>
               </select>
             </label>
             <label>
@@ -143,11 +180,11 @@ This document is provided for official purposes only and is not to be construed 
             </label>
             <label>
               Decedent's Name ((OOC)):
-              <input type="text" name="decedentOOC" value={formData.decedentOOC} onChange={handleChange} required />
+              <input type="text" name="decedentOOC" value={formData.decedentOOC} onChange={handleChange} placeholder="John Snow" required />
             </label>
             <label>
               Place of Death:
-              <input type="text" name="placeOfDeath" value={formData.placeOfDeath} onChange={handleChange} required />
+              <input type="text" name="placeOfDeath" value={formData.placeOfDeath} onChange={handleChange} placeholder="Mirror Park" required />
             </label>
             <label>
               Department:
@@ -159,6 +196,8 @@ This document is provided for official purposes only and is not to be construed 
                 <option value="PHMC">PHMC</option>
                 <option value="SANFIRE">SANFIRE</option>
                 <option value="SADCR">SADCR</option>
+                <option value="LSGOV">LSGOV</option>
+                <option value="911 Call">Emergency 911 Dispatch</option>
               </select>
             </label>
             <label>
@@ -167,15 +206,15 @@ This document is provided for official purposes only and is not to be construed 
             </label>
             <label>
               Coroner's Name:
-              <input type="text" name="coronerName" value={formData.coronerName} onChange={handleChange} required />
+              <input type="text" name="coronerName" value={formData.coronerName} onChange={handleChange} placeholder="Anne Carter" required />
             </label>
             <label>
-              Serial Number:
+              Badge Number: ((/badge [Your ID]))
               <input type="text" name="serialNumber" value={formData.serialNumber} onChange={handleChange} required />
             </label>
             <label>
               Decedent's Name:
-              <input type="text" name="decedentName" value={formData.decedentName} onChange={handleChange} required />
+              <input type="text" name="decedentName" value={formData.decedentName} onChange={handleChange} placeholder="Jane / John Doe" required />
             </label>
             <label>
               Pronounced Time of Death:
@@ -207,18 +246,6 @@ This document is provided for official purposes only and is not to be construed 
               Morgue Screen, Cinjuries, CDNA Links (comma-separated):
               <textarea name="additionalImages" value={formData.additionalImages} onChange={handleChange} rows="2" required></textarea>
             </label>
-            <button type="button" onClick={() => {
-              const bbCode = generateBBCode();
-              navigator.clipboard.writeText(bbCode).then(() => {
-                alert('BBCode copied to clipboard!');
-              });
-            }}>Generate BBCode</button>
-            <button type="button" onClick={() => {
-              const title = generateTitle();
-              navigator.clipboard.writeText(title).then(() => {
-                alert('Title copied to clipboard!');
-              });
-            }}>Generate Title</button>
           </form>
         </div>
         <div className="output-container">
@@ -226,20 +253,20 @@ This document is provided for official purposes only and is not to be construed 
           <div className="bbcode-output">
             <pre>{generateBBCode()}</pre>
           </div>
-          <h2>Generated Title</h2>
+          <h1>Generated Title</h1>
           <div className="title-output">
             <pre>{generateTitle()}</pre>
           </div>
           <button type="button" onClick={() => {
             const title = generateTitle();
             navigator.clipboard.writeText(title).then(() => {
-              alert('Title copied to clipboard!');
+              //alert('Title copied to clipboard!');
             });
           }}>Copy Title</button>
           <button type="button" onClick={() => {
             const bbCode = generateBBCode();
             navigator.clipboard.writeText(bbCode).then(() => {
-              alert('BBCode copied to clipboard!');
+              //alert('BBCode copied to clipboard!');
             });
           }}>Copy BBCode</button>
         </div>
