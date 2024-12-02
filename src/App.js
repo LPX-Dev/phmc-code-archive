@@ -3,80 +3,80 @@ import './App.css';
 
 
 function App() {
-  const [formData, setFormData] = useState({
-    jobClassification: 'Forensic Attendant',
-    placeOfDeath: '',
-    department: '',
-    dateTime: '',
-    coronerName: '',
-    serialNumber: '',
-    decedentName: '',
-    pronouncedTimeOfDeath: '',
-    synopsis: '',
-    probableCauseOfDeath: '',
-    mannerOfDeath: 'Natural',
-    typeOfDeath: 'CK',
-    decedentOOC: '',
-    scenePhotos: '',
-    additionalImages: ''
-  });
-
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData({
-      ...formData,
-      [name]: value
+    const [formData, setFormData] = useState({
+        jobClassification: 'Forensic Attendant',
+        placeOfDeath: '',
+        department: '',
+        dateTime: '',
+        coronerName: '',
+        serialNumber: '',
+        decedentName: '',
+        pronouncedTimeOfDeath: '',
+        synopsis: '',
+        probableCauseOfDeath: '',
+        mannerOfDeath: 'Natural',
+        typeOfDeath: 'CK',
+        decedentOOC: '',
+        scenePhotos: '',
+        additionalImages: ''
     });
-  };
 
-  
-  const departmentFullName = (abbreviation) => {
-    switch (abbreviation) {
-      case 'LSPD':
-        return 'Los Santos Police Department';
-      case 'LSFD':
-        return 'Los Santos Fire Department';
-      case 'LSSD':
-        return 'Los Santos Sheriff Department';
-      case 'PHMC':
-        return 'Pillbox Hill Medical Center';
-      case 'SANFIRE':
-        return 'San Andreas Department of Forestry and Fire Protection';
-      case 'SADCR':
-        return 'San Andreas Department of Corrections and Rehabilitation';
-      case 'LSGOV':
-        return 'Los Santos City Government';
-      case '911 Call':
-        return 'Emergency 911 Dispatch Center';
-      default:
-        return '';
-    }
-  };
+    const handleChange = (e) => {
+        const { name, value } = e.target;
+        setFormData({
+            ...formData,
+            [name]: value
+        });
+    };
 
-  const generateBBCode = () => {
-    const {
-      jobClassification,
-      placeOfDeath,
-      department,
-      dateTime,
-      coronerName,
-      serialNumber,
-      decedentName,
-      pronouncedTimeOfDeath,
-      synopsis,
-      probableCauseOfDeath,
-      mannerOfDeath,
-      typeOfDeath,
-      scenePhotos,
-      additionalImages
-    } = formData;
 
-    const scenePhotosBBCode = scenePhotos.split(',').map(photo => `[img]${photo.trim()}[/img]`).join('\n');
-    const additionalImagesBBCode = additionalImages.split(',').map(photo => `[img]${photo.trim()}[/img]`).join('\n');
+    const departmentFullName = (abbreviation) => {
+        switch (abbreviation) {
+            case 'LSPD':
+                return 'Los Santos Police Department';
+            case 'LSFD':
+                return 'Los Santos Fire Department';
+            case 'LSSD':
+                return 'Los Santos Sheriff Department';
+            case 'PHMC':
+                return 'Pillbox Hill Medical Center';
+            case 'SANFIRE':
+                return 'San Andreas Department of Forestry and Fire Protection';
+            case 'SADCR':
+                return 'San Andreas Department of Corrections and Rehabilitation';
+            case 'LSGOV':
+                return 'Los Santos City Government';
+            case '911 Call':
+                return 'Emergency 911 Dispatch Center';
+            default:
+                return '';
+        }
+    };
 
-    const bbCode = `[divbox=white][center][img]https://i.imgur.com/Hxjt4M2.png[/img][/center][/divbox]
+    const generateBBCode = () => {
+        const {
+            jobClassification,
+            placeOfDeath,
+            department,
+            dateTime,
+            coronerName,
+            serialNumber,
+            decedentName,
+            pronouncedTimeOfDeath,
+            synopsis,
+            probableCauseOfDeath,
+            mannerOfDeath,
+            typeOfDeath,
+            scenePhotos,
+            additionalImages
+        } = formData;
 
-[divbox=white][br][/br][center]DEATH INVESTIGATION REPORT[/center]
+        const scenePhotosBBCode = scenePhotos.split(',').map(photo => `[img]${photo.trim()}[/img]`).join('\n');
+        const additionalImagesBBCode = additionalImages.split(',').map(photo => `[img]${photo.trim()}[/img]`).join('\n');
+
+        const bbCode = `[divbox=transparent][center][img]https://i.imgur.com/Hxjt4M2.png[/img][/center][/divbox]
+
+[divbox=transparent][br][/br][center]DEATH INVESTIGATION REPORT[/center]
 [hr][/hr]
 
 [center][b]A. WRITTEN REPORT[/b][/center]
@@ -118,161 +118,163 @@ It is imperative that all parties handling this document respect the privacy and
 
 This document is provided for official purposes only and is not to be construed as legal advice or medical diagnosis. If additional information or clarification is needed, please contact the Forensic Medicine and Pathology Department of Pillbox Hill Medical Center.[/size][/divbox]`;
 
-    return bbCode;
-  };
+        return bbCode;
+    };
 
-  const generateTitle = () => {
-    const { typeOfDeath, decedentName, decedentOOC, dateTime } = formData;
-    const date = new Date(dateTime).toLocaleDateString('en-US');
-    return `[${typeOfDeath}] ${decedentName} ((${decedentOOC})) - ${date}`;
-  };
-  return (
-    <div className="App">
-      <div className="container">
-        <div className="form-container">
-          <h2>Death Investigation Report Form</h2>
-         <a href="https://www.github.com/lpx-dev/phmc-death-report" target="_blank" rel="noopener noreferrer">
-            <h5>This website is fully open source and was made by Fr0sty, you can report bugs in the PHMC Discord.</h5>
-          </a> 
-          <details>
-            <summary>Change Log - 1.2</summary>
-            <ul>
-              <li>Refactored app, rewrote various sections. </li>
-              <li>- frosty</li>
-            </ul>
-          </details>  
-          <button type="button" onClick={() => {
-            const title = generateTitle();
-            navigator.clipboard.writeText(title).then(() => {
-              window.open('https://phmc.gta.world/posting.php?mode=post&f=267', '_blank');
-            });
-        }}>
-    Create Death Investigation Topic
-</button>
-<button type="button" onClick={() => {
+    const generateTitle = () => {
+        const { typeOfDeath, decedentName, decedentOOC, dateTime } = formData;
+        const date = new Date(dateTime).toLocaleDateString('en-US');
+        return `[${typeOfDeath}] ${decedentName} ((${decedentOOC})) - ${date}`;
+    };
+    return (
+        <div className="App">
+            <div className="container">
+                <div className="form-container">
+                    <h1>Death Investigation Report Form</h1>
+                    <a href="https://github.com/lpx-dev/phmc-email-generator" target="_blank" rel="noopener noreferrer">
+                        <h5>This website is fully open source and was made by Fr0sty, you can report bugs in the PHMC Discord.</h5>
+                    </a>
+                    <details>
+                        <summary>Change Log - 1.4a</summary>
+                        <ul>
+                            <li>Bug fixes </li>
+                            <li></li>
+                            <li>- frosty</li>
+                        </ul>
+                    </details>
+                    <button type="button" onClick={() => {
+                        const title = generateTitle();
+                        navigator.clipboard.writeText(title).then(() => {
+                            window.open('https://phmc.gta.world/posting.php?mode=post&f=267', '_blank');
+                        });
+                    }}>
+                        Create Death Investigation Topic
+                    </button>
+                    <button type="button" onClick={() => {
                         const title = generateTitle();
                         navigator.clipboard.writeText(title).then(() => {
                             window.open('https://lpx-dev.github.io/phmc-email-generator/', '_blank');
                         });
                     }}>
-                      PHMC Email Generator
+                        PHMC Email Generator
                     </button>
-          <form>
-            <label>
-              Job Classification:
-              <select name="jobClassification" value={formData.jobClassification} onChange={handleChange} required>
-                <option value="Forensic Attendant">Forensic Attendant</option>
-                <option value="Supervising Forensic Attendant">Supervising Forensic Attendant</option>
-                <option value="Coroner Investigator">Coroner Investigator</option>
-                <option value="Supervising Coroner Investigator">Supervising Coroner Investigator</option>
-                <option value="Medical Examiner">Medical Examiner</option>
-                <option value="Supervising Medical Examiner">Supervising Medical Examiner</option>
-                <option value="Deputy Chief Medical Examiner">Deputy Chief Medical Examiner</option>
-                <option value="Chief Medical Examiner">Chief Medical Examiner</option>
-              </select>
-            </label>
-            <label>
-              Type of Death:
-              <select name="typeOfDeath" value={formData.typeOfDeath} onChange={handleChange} required>
-                <option value="CK">CK</option>
-                <option value="PK">PK</option>
-              </select>
-            </label>
-            <label>
-              Decedent's Name ((OOC)):
-              <input type="text" name="decedentOOC" value={formData.decedentOOC} onChange={handleChange} placeholder="John Snow" required />
-            </label>
-            <label>
-              Place of Death:
-              <input type="text" name="placeOfDeath" value={formData.placeOfDeath} onChange={handleChange} placeholder="Mirror Park" required />
-            </label>
-            <label>
-              Department:
-              <select name="department" value={formData.department} onChange={handleChange} required>
-                <option value="" disabled>Select Department</option>
-                <option value="LSFD">LSFD</option>
-                <option value="LSPD">LSPD</option>
-                <option value="LSSD">LSSD</option>
-                <option value="PHMC">PHMC</option>
-                <option value="SANFIRE">SANFIRE</option>
-                <option value="SADCR">SADCR</option>
-                <option value="LSGOV">LSGOV</option>
-                <option value="911 Call">Emergency 911 Dispatch</option>
-              </select>
-            </label>
-            <label>
-              Date and Time:
-              <input type="datetime-local" name="dateTime" value={formData.dateTime} onChange={handleChange} required />
-            </label>
-            <label>
-              Coroner's Name:
-              <input type="text" name="coronerName" value={formData.coronerName} onChange={handleChange} placeholder="Anne Carter" required />
-            </label>
-            <label>
-              Badge Number: ((/badge [Your ID]))
-              <input type="text" name="serialNumber" value={formData.serialNumber} onChange={handleChange} required />
-            </label>
-            <label>
-              Decedent's Name:
-              <input type="text" name="decedentName" value={formData.decedentName} onChange={handleChange} placeholder="Jane / John Doe" required />
-            </label>
-            <label>
-              Pronounced Time of Death:
-              <input type="datetime-local" name="pronouncedTimeOfDeath" value={formData.pronouncedTimeOfDeath} onChange={handleChange} required />
-            </label>
-            <label>
-              Synopsis:
-              <textarea name="synopsis" value={formData.synopsis} onChange={handleChange} rows="4" required></textarea>
-            </label>
-            <label>
-              Probable Cause of Death:
-              <input type="text" name="probableCauseOfDeath" value={formData.probableCauseOfDeath} onChange={handleChange} required />
-            </label>
-            <label>
-              Manner of Death:
-              <select name="mannerOfDeath" value={formData.mannerOfDeath} onChange={handleChange} required>
-                <option value="Natural">Natural</option>
-                <option value="Accident">Accident</option>
-                <option value="Suicide">Suicide</option>
-                <option value="Homicide">Homicide</option>
-                <option value="Undetermined">Undetermined</option>
-              </select>
-            </label>
-            <label>
-              Scene Photos Links (comma-separated):
-              <textarea name="scenePhotos" value={formData.scenePhotos} onChange={handleChange} rows="2" required></textarea>
-            </label>
-            <label>
-              Morgue Screen, Cinjuries, CDNA Links (comma-separated):
-              <textarea name="additionalImages" value={formData.additionalImages} onChange={handleChange} rows="2" required></textarea>
-            </label>
-          </form>
+                    <form>
+                        <label>
+                            Job Classification:
+                            <select name="jobClassification" value={formData.jobClassification} onChange={handleChange} required>
+                                <option value="Forensic Attendant">Forensic Attendant</option>
+                                <option value="Senior Forensic Attendant">Senior Forensic Attendant </option>
+                                <option value="Supervising Forensic Attendant">Supervising Forensic Attendant</option>
+                                <option value="Coroner Investigator">Coroner Investigator</option>
+                                <option value="Supervising Coroner Investigator">Supervising Coroner Investigator</option>
+                                <option value="Medical Examiner">Medical Examiner</option>
+                                <option value="Supervising Medical Examiner">Supervising Medical Examiner</option>
+                                <option value="Deputy Chief Medical Examiner">Deputy Chief Medical Examiner</option>
+                                <option value="Chief Medical Examiner">Chief Medical Examiner</option>
+                            </select>
+                        </label>
+                        <label>
+                            Type of Death:
+                            <select name="typeOfDeath" value={formData.typeOfDeath} onChange={handleChange} required>
+                                <option value="CK">CK</option>
+                                <option value="PK">PK</option>
+                            </select>
+                        </label>
+                        <label>
+                            Decedent's Name ((OOC)):
+                            <input type="text" name="decedentOOC" value={formData.decedentOOC} onChange={handleChange} placeholder="John Snow" required />
+                        </label>
+                        <label>
+                            Place of Death:
+                            <input type="text" name="placeOfDeath" value={formData.placeOfDeath} onChange={handleChange} placeholder="Mirror Park" required />
+                        </label>
+                        <label>
+                            Department:
+                            <select name="department" value={formData.department} onChange={handleChange} required>
+                                <option value="" disabled>Select Department</option>
+                                <option value="LSFD">LSFD</option>
+                                <option value="LSPD">LSPD</option>
+                                <option value="LSSD">LSSD</option>
+                                <option value="PHMC">PHMC</option>
+                                <option value="SANFIRE">SANFIRE</option>
+                                <option value="SADCR">SADCR</option>
+                                <option value="LSGOV">LSGOV</option>
+                                <option value="911 Call">Emergency 911 Dispatch</option>
+                            </select>
+                        </label>
+                        <label>
+                            Date and Time:
+                            <input type="datetime-local" name="dateTime" value={formData.dateTime} onChange={handleChange} required />
+                        </label>
+                        <label>
+                            Coroner's Name:
+                            <input type="text" name="coronerName" value={formData.coronerName} onChange={handleChange} placeholder="Anne Carter" required />
+                        </label>
+                        <label>
+                            Badge Number: ((/badge [Your ID]))
+                            <input type="text" name="serialNumber" value={formData.serialNumber} onChange={handleChange} required />
+                        </label>
+                        <label>
+                            Decedent's Name:
+                            <input type="text" name="decedentName" value={formData.decedentName} onChange={handleChange} placeholder="Jane / John Doe" required />
+                        </label>
+                        <label>
+                            Pronounced Time of Death:
+                            <input type="datetime-local" name="pronouncedTimeOfDeath" value={formData.pronouncedTimeOfDeath} onChange={handleChange} required />
+                        </label>
+                        <label>
+                            Synopsis:
+                            <textarea name="synopsis" value={formData.synopsis} onChange={handleChange} rows="4" required></textarea>
+                        </label>
+                        <label>
+                            Probable Cause of Death:
+                            <input type="text" name="probableCauseOfDeath" value={formData.probableCauseOfDeath} onChange={handleChange} required />
+                        </label>
+                        <label>
+                            Manner of Death:
+                            <select name="mannerOfDeath" value={formData.mannerOfDeath} onChange={handleChange} required>
+                                <option value="Natural">Natural</option>
+                                <option value="Accident">Accident</option>
+                                <option value="Suicide">Suicide</option>
+                                <option value="Homicide">Homicide</option>
+                                <option value="Undetermined">Undetermined</option>
+                            </select>
+                        </label>
+                        <label>
+                            Scene Photos Links (comma-separated):
+                            <textarea name="scenePhotos" value={formData.scenePhotos} onChange={handleChange} rows="2" required></textarea>
+                        </label>
+                        <label>
+                            Morgue Screen, Cinjuries, CDNA Links (comma-separated):
+                            <textarea name="additionalImages" value={formData.additionalImages} onChange={handleChange} rows="2" required></textarea>
+                        </label>
+                    </form>
+                </div>
+                <div className="output-container">
+                    <h2>Generated BBCode</h2>
+                    <div className="bbcode-output">
+                        <pre>{generateBBCode()}</pre>
+                    </div>
+                    <h1>Generated Title</h1>
+                    <div className="title-output">
+                        <pre>{generateTitle()}</pre>
+                    </div>
+                    <button type="button" onClick={() => {
+                        const title = generateTitle();
+                        navigator.clipboard.writeText(title).then(() => {
+                            alert('Something has gone wrong, please contact the website developer. Trace: Line#204 - Invalid Syntax <');
+                        });
+                    }}>Copy Title</button>
+                    <button type="button" onClick={() => {
+                        const bbCode = generateBBCode();
+                        navigator.clipboard.writeText(bbCode).then(() => {
+                            alert('Something has gone wrong, please contact the website developer. Trace: Line#204 - Invalid Syntax <');
+                        });
+                    }}>Copy BBCode</button>
+                </div>
+            </div>
         </div>
-        <div className="output-container">
-          <h2>Generated BBCode</h2>
-          <div className="bbcode-output">
-            <pre>{generateBBCode()}</pre>
-          </div>
-          <h1>Generated Title</h1>
-          <div className="title-output">
-            <pre>{generateTitle()}</pre>
-          </div>
-          <button type="button" onClick={() => {
-            const title = generateTitle();
-            navigator.clipboard.writeText(title).then(() => {
-              //alert('Title copied to clipboard!');
-            });
-          }}>Copy Title</button>
-          <button type="button" onClick={() => {
-            const bbCode = generateBBCode();
-            navigator.clipboard.writeText(bbCode).then(() => {
-              //alert('BBCode copied to clipboard!');
-            });
-          }}>Copy BBCode</button>
-        </div>
-      </div>
-    </div>
-  );
+    );
 }
 
 export default App;
