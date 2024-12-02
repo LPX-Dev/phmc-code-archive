@@ -262,13 +262,11 @@ This document is provided for official purposes only and is not to be construed 
                     <button type="button" onClick={() => {
                         const title = generateTitle();
                         navigator.clipboard.writeText(title).then(() => {
-                            alert('Something has gone wrong, please contact the website developer. Trace: Line#204 - Invalid Syntax <');
                         });
                     }}>Copy Title</button>
                     <button type="button" onClick={() => {
                         const bbCode = generateBBCode();
                         navigator.clipboard.writeText(bbCode).then(() => {
-                            alert('Something has gone wrong, please contact the website developer. Trace: Line#204 - Invalid Syntax <');
                         });
                     }}>Copy BBCode</button>
                 </div>
