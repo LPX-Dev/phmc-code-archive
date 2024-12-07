@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import './App.css';
+import myImage from './dmec_christmas.png';
 
 
 function App() {
@@ -130,18 +131,19 @@ This document is provided for official purposes only and is not to be construed 
         <div className="App">
             <div className="container">
                 <div className="form-container">
-                    <h1>Death Investigation Report Form</h1>
-                    <a href="https://github.com/lpx-dev/phmc-email-generator" target="_blank" rel="noopener noreferrer">
-                        <h5>This website is fully open source and was made by Fr0sty, you can report bugs in the PHMC Discord.</h5>
+                    <h2>Death Investigation Report Form</h2>
+                    <a href="https://github.com/LPX-Dev/phmc-death-report/tree/main" target="_blank" rel="noopener noreferrer">
+                    <h5>This website is fully open source and was made by Fr0sty, you can report bugs in the PHMC Discord.</h5>
                     </a>
                     <details>
-                        <summary>Change Log - 1.4a</summary>
+                        <summary>Change Log - 1.4</summary>
                         <ul>
-                            <li>Bug fixes </li>
-                            <li></li>
-                            <li>- frosty</li>
+                            <li>Christmas is here </li>
+                            <li> - frosty</li>
                         </ul>
-                    </details>
+                    </details>  
+
+                    <img src={myImage} alt="My Image" width={685} height={300} />
                     <button type="button" onClick={() => {
                         const title = generateTitle();
                         navigator.clipboard.writeText(title).then(() => {
