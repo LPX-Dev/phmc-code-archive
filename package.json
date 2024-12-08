@@ -1,6 +1,6 @@
 {
-  "name": "my-app",
-  "version": "0.1.0",
+  "name": "phmc-death",
+  "version": "1.0",
   "homepage": "https://LPX-dev.github.io/phmc-death-report",
   "private": true,
   "dependencies": {

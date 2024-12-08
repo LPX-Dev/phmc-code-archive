@@ -92,11 +92,11 @@ Based on the information gathered from the scene investigation and the decedent'
 
 [list=none][color=transparent]spacer[/color][center][b]B. PHOTOGRAPHIC DOCUMENTARY RECORD[/b][/center]
 
-[divbox=transparent][center][color=Black][size=85][b][u]SCENE PHOTOGRAPHY[/u][/b][/size][/center][/color][hr][/hr]
+[divbox=transparent][center][size=85][b][u]SCENE PHOTOGRAPHY[/u][/b][/size][/center][hr][/hr]
 ${scenePhotosBBCode}
 [/divbox]
 
-[divbox=transparent][center][color=Black][size=85][b][u](( OUT OF CHARACTER ))[/u][/b][/size][/center][/color][hr][/hr]
+[divbox=transparent][center][size=85][b][u](( OUT OF CHARACTER ))[/u][/b][/size][/center][hr][/hr]
 [size=75] This section clarifies whether or not if the player was character killed or player killed. 
 In this case the player was; ${typeOfDeath}[/size]
 
