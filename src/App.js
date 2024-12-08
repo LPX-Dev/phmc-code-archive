@@ -136,9 +136,9 @@ This document is provided for official purposes only and is not to be construed 
                     <h5>This website is fully open source and was made by Fr0sty, you can report bugs in the PHMC Discord.</h5>
                     </a>
                     <details>
-                        <summary>Change Log - 1.4</summary>
+                        <summary>Change Log - 1.4b</summary>
                         <ul>
-                            <li>Christmas is here </li>
+                            <li>Christmas is here | Fixed BBCode errors </li>
                             <li> - frosty</li>
                         </ul>
                     </details>  
