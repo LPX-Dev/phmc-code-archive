@@ -138,10 +138,10 @@ This document is provided for official purposes only and is not to be construed 
                         <summary>Change Log - 1.5</summary>
                         <ul>
                             <li>Christmas is here </li>
-                            <li>Updated Manner of Death text</li>
+                            <li>Updated Manner of Death text.</li>
                             <li>Copying BBCode will now direct you to the proper PHMC sub forum. </li>
-                            <li>Updated links and some BBCode</li>
-                            <li>kind regards; frosty</li>
+                            <li>Updated links and some BBCode.</li>
+                            <li>!!Happy holidays!!</li>
                         </ul>
                     </details>  
                     <img src={myImage} alt="My Image" width={685} height={300} />
