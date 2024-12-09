@@ -2,16 +2,15 @@ import React, { useState } from 'react';
 import './App.css';
 import myImage from './dmec_christmas.png';
 
-
 function App() {
     const [formData, setFormData] = useState({
         jobClassification: 'Forensic Attendant',
         placeOfDeath: '',
         department: '',
-        dateTime: '',
+        dateTime: 'localtime',
         coronerName: '',
         serialNumber: '',
-        decedentName: '',
+        decedentName: 'John Doe',
         pronouncedTimeOfDeath: '',
         synopsis: '',
         probableCauseOfDeath: '',
@@ -136,21 +135,23 @@ This document is provided for official purposes only and is not to be construed 
                     <h5>This website is fully open source and was made by Fr0sty, you can report bugs in the PHMC Discord.</h5>
                     </a>
                     <details>
-                        <summary>Change Log - 1.4b</summary>
+                        <summary>Change Log - 1.5</summary>
                         <ul>
-                            <li>Christmas is here | Fixed BBCode errors </li>
-                            <li> - frosty</li>
+                            <li>Christmas is here </li>
+                            <li>Updated Manner of Death text</li>
+                            <li>Copying BBCode will now direct you to the proper PHMC sub forum. </li>
+                            <li>Updated links and some BBCode</li>
+                            <li>kind regards; frosty</li>
                         </ul>
                     </details>  
-
                     <img src={myImage} alt="My Image" width={685} height={300} />
                     <button type="button" onClick={() => {
                         const title = generateTitle();
                         navigator.clipboard.writeText(title).then(() => {
-                            window.open('https://phmc.gta.world/posting.php?mode=post&f=267', '_blank');
+                            window.open('https://phmc.gta.world/viewforum.php?f=255', '_blank');
                         });
                     }}>
-                        Create Death Investigation Topic
+                        DMEC forums
                     </button>
                     <button type="button" onClick={() => {
                         const title = generateTitle();
@@ -183,7 +184,7 @@ This document is provided for official purposes only and is not to be construed 
                             </select>
                         </label>
                         <label>
-                            Decedent's Name ((OOC)):
+                            Decedents Name ((OOC)):
                             <input type="text" name="decedentOOC" value={formData.decedentOOC} onChange={handleChange} placeholder="John Snow" required />
                         </label>
                         <label>
@@ -209,7 +210,7 @@ This document is provided for official purposes only and is not to be construed 
                             <input type="datetime-local" name="dateTime" value={formData.dateTime} onChange={handleChange} required />
                         </label>
                         <label>
-                            Coroner's Name:
+                            Coroner Name:
                             <input type="text" name="coronerName" value={formData.coronerName} onChange={handleChange} placeholder="Anne Carter" required />
                         </label>
                         <label>
@@ -217,7 +218,7 @@ This document is provided for official purposes only and is not to be construed 
                             <input type="text" name="serialNumber" value={formData.serialNumber} onChange={handleChange} required />
                         </label>
                         <label>
-                            Decedent's Name:
+                            Decedent Name:
                             <input type="text" name="decedentName" value={formData.decedentName} onChange={handleChange} placeholder="Jane / John Doe" required />
                         </label>
                         <label>
@@ -225,7 +226,7 @@ This document is provided for official purposes only and is not to be construed 
                             <input type="datetime-local" name="pronouncedTimeOfDeath" value={formData.pronouncedTimeOfDeath} onChange={handleChange} required />
                         </label>
                         <label>
-                            Synopsis:
+                            Brief Summary:
                             <textarea name="synopsis" value={formData.synopsis} onChange={handleChange} rows="4" required></textarea>
                         </label>
                         <label>
@@ -235,11 +236,11 @@ This document is provided for official purposes only and is not to be construed 
                         <label>
                             Manner of Death:
                             <select name="mannerOfDeath" value={formData.mannerOfDeath} onChange={handleChange} required>
-                                <option value="Natural">Natural</option>
-                                <option value="Accident">Accident</option>
-                                <option value="Suicide">Suicide</option>
-                                <option value="Homicide">Homicide</option>
-                                <option value="Undetermined">Undetermined</option>
+                                <option value="Natural">Natural - the death resulted from natural causes, such as disease or old age.</option>
+                                <option value="Accident">Accidental - the death resulted from an unintentional or unexpected event, such as a car accident or drug overdose.</option>
+                                <option value="Suicide">Suicide - the death resulted from a self-inflicted injury with the intention to end ones life.</option>
+                                <option value="Homicide">Homicide - the death resulted from the intentional actions of another person, such as a murder or manslaughter.</option>
+                                <option value="Undetermined">Undetermined - the evidence is insufficient to determine the manner of death</option>
                             </select>
                         </label>
                         <label>
@@ -264,13 +265,16 @@ This document is provided for official purposes only and is not to be construed 
                     <button type="button" onClick={() => {
                         const title = generateTitle();
                         navigator.clipboard.writeText(title).then(() => {
+                            //window.open('https://lpx-dev.github.io/phmc-email-generator/', '_blank');
                         });
                     }}>Copy Title</button>
                     <button type="button" onClick={() => {
                         const bbCode = generateBBCode();
                         navigator.clipboard.writeText(bbCode).then(() => {
+                            window.open('https://phmc.gta.world/posting.php?mode=post&f=267/', '_blank');
                         });
                     }}>Copy BBCode</button>
+                    <h5> Clicking on Copy BBCode will open a new tab in the Decedent Services sub forum. </h5>
                 </div>
             </div>
         </div>
