@@ -7,7 +7,7 @@ function App() {
         jobClassification: 'Forensic Attendant',
         placeOfDeath: '',
         department: '',
-        dateTime: 'localtime',
+        dateTime: '',
         coronerName: '',
         serialNumber: '',
         decedentName: 'John Doe',
@@ -15,7 +15,7 @@ function App() {
         synopsis: '',
         probableCauseOfDeath: '',
         mannerOfDeath: 'Natural',
-        typeOfDeath: 'CK',
+        typeOfDeath: 'PK',
         decedentOOC: '',
         scenePhotos: '',
         additionalImages: ''
@@ -132,7 +132,7 @@ This document is provided for official purposes only and is not to be construed 
                 <div className="form-container">
                     <h2>Death Investigation Report Form</h2>
                     <a href="https://github.com/LPX-Dev/phmc-death-report/tree/main" target="_blank" rel="noopener noreferrer">
-                    <h5>This website is fully open source and was made by Fr0sty, you can report bugs in the PHMC Discord.</h5>
+                        <h5>This website is fully open source and was made by Fr0sty, you can report bugs in the PHMC Discord.</h5>
                     </a>
                     <details>
                         <summary>Change Log - 1.5</summary>
@@ -143,7 +143,7 @@ This document is provided for official purposes only and is not to be construed 
                             <li>Updated links and some BBCode.</li>
                             <li>!!Happy holidays!!</li>
                         </ul>
-                    </details>  
+                    </details>
                     <img src={myImage} alt="My Image" width={685} height={300} />
                     <button type="button" onClick={() => {
                         const title = generateTitle();
@@ -179,8 +179,8 @@ This document is provided for official purposes only and is not to be construed 
                         <label>
                             Type of Death:
                             <select name="typeOfDeath" value={formData.typeOfDeath} onChange={handleChange} required>
-                                <option value="CK">CK</option>
                                 <option value="PK">PK</option>
+                                <option value="CK">CK</option>
                             </select>
                         </label>
                         <label>
