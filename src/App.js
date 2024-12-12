@@ -141,7 +141,7 @@ This document is provided for official purposes only and is not to be construed 
                             <li>Updated Manner of Death text.</li>
                             <li>Copying BBCode will now direct you to the proper PHMC sub forum. </li>
                             <li>Updated links and some BBCode.</li>
-                            <li>Disabled a URL temporarily</li>
+                            <li>Rewrote error handling & confirm box for reports.</li>
                             <li>!!Happy holidays!!</li>
                         </ul>
                     </details>
