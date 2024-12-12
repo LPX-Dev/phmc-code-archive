@@ -141,6 +141,7 @@ This document is provided for official purposes only and is not to be construed 
                             <li>Updated Manner of Death text.</li>
                             <li>Copying BBCode will now direct you to the proper PHMC sub forum. </li>
                             <li>Updated links and some BBCode.</li>
+                            <li>Disabled a URL temporarily</li>
                             <li>!!Happy holidays!!</li>
                         </ul>
                     </details>
@@ -263,18 +264,23 @@ This document is provided for official purposes only and is not to be construed 
                         <pre>{generateTitle()}</pre>
                     </div>
                     <button type="button" onClick={() => {
+                        if (window.confirm("Have you finished the report? Click 'OK' when done. If not, press cancel.")) {
+                            window.open("https://phmc.gta.world/posting.php?mode=post&f=267", "Salute!");
+                        }
                         const title = generateTitle();
                         navigator.clipboard.writeText(title).then(() => {
-                            //window.open('https://lpx-dev.github.io/phmc-email-generator/', '_blank');
                         });
                     }}>Copy Title</button>
                     <button type="button" onClick={() => {
+                        if (window.confirm("Have you finished the report? Click 'OK' when done. If not, press cancel.")) {
+                            window.open("https://phmc.gta.world/posting.php?mode=post&f=267", "Salute!");
+                        }
                         const bbCode = generateBBCode();
                         navigator.clipboard.writeText(bbCode).then(() => {
-                            window.open('https://phmc.gta.world/posting.php?mode=post&f=267/', '_blank');
                         });
                     }}>Copy BBCode</button>
-                    <h5> Clicking on Copy BBCode will open a new tab in the Decedent Services sub forum. </h5>
+
+                        <h5> Placeholder  </h5>
                 </div>
             </div>
         </div>
