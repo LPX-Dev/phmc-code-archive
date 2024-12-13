@@ -137,13 +137,10 @@ This document is provided for official purposes only and is not to be construed 
                         <h5>This website is fully open source and was made by Fr0sty, you can report bugs in the PHMC Discord.</h5>
                     </a>
                     <details>
-                        <summary>Change Log - 1.5</summary>
+                        <summary>Change Log - 1.6</summary>
                         <ul>
-                            <li>Christmas is here </li>
-                            <li>Updated Manner of Death text.</li>
-                            <li>Copying BBCode will now direct you to the proper PHMC sub forum. </li>
-                            <li>Updated links and some BBCode.</li>
-                            <li>Rewrote error handling & confirm box for reports.</li>
+                            <li>Christmas is here. </li>
+                            <li>Various UI changes.</li>
                             <li>!!Happy holidays!!</li>
                         </ul>
                     </details>
@@ -286,7 +283,7 @@ This document is provided for official purposes only and is not to be construed 
                         });
                     }}>Copy BBCode</button>
                     <div className="image-container">
-                        <a href="https://phmc.gta.world/posting.php?mode=post&f=267">
+                        <a href="https://phmc.gta.world/posting.php?mode=post&f=267" target="_blank" rel="noopener noreferrer">
                         <img src={Paperwork} 
                             height={350}
                             width={350}
