@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import './App.css';
 import myImage from './dmec_christmas.png';
+import Paperwork from './myPaperwork2.png';
+import Feedback from './feedback.png';
 
 function App() {
     const [formData, setFormData] = useState({
@@ -255,7 +257,17 @@ This document is provided for official purposes only and is not to be construed 
                     </form>
                 </div>
                 <div className="output-container">
+                    <div className="image-container">
+                        <a href="discord://discord.com/channels/860254678653992992/1247889726204022956" target="_blank" rel="noopener noreferrer">
+                            <img src={Feedback}    
+                                height={350}
+                                width={350}
+                                className="Center"
+                            />
+                        </a>
+                    </div>
                     <h2>Generated BBCode</h2>
+
                     <div className="bbcode-output">
                         <pre>{generateBBCode()}</pre>
                     </div>
@@ -264,23 +276,24 @@ This document is provided for official purposes only and is not to be construed 
                         <pre>{generateTitle()}</pre>
                     </div>
                     <button type="button" onClick={() => {
-                        if (window.confirm("Have you finished the report? Click 'OK' when done. If not, press cancel.")) {
-                            window.open("https://phmc.gta.world/posting.php?mode=post&f=267", "Salute!");
-                        }
                         const title = generateTitle();
                         navigator.clipboard.writeText(title).then(() => {
                         });
                     }}>Copy Title</button>
                     <button type="button" onClick={() => {
-                        if (window.confirm("Have you finished the report? Click 'OK' when done. If not, press cancel.")) {
-                            window.open("https://phmc.gta.world/posting.php?mode=post&f=267", "Salute!");
-                        }
                         const bbCode = generateBBCode();
                         navigator.clipboard.writeText(bbCode).then(() => {
                         });
                     }}>Copy BBCode</button>
-
-                        <h5> Placeholder  </h5>
+                    <div className="image-container">
+                        <a href="https://phmc.gta.world/posting.php?mode=post&f=267">
+                        <img src={Paperwork} 
+                            height={350}
+                            width={350}
+                            className="Center"
+                            />
+                    </a>
+                    </div>
                 </div>
             </div>
         </div>

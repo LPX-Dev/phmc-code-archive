@@ -50,6 +50,7 @@ input, textarea, select {
     border-radius: 4px;
     color: #acb1cad3;
 }
+
 img {
     max-width: 100%;
     height: auto;
@@ -94,4 +95,9 @@ a {
         body a {
             color: #809fff;
         }
+}
+.image-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
