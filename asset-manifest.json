@@ -1,17 +1,17 @@
 {
   "files": {
-    "main.css": "/phmc-death-report/static/css/main.ce8d9c35.css",
-    "main.js": "/phmc-death-report/static/js/main.87a4ab78.js",
+    "main.css": "/phmc-death-report/static/css/main.d4a6a209.css",
+    "main.js": "/phmc-death-report/static/js/main.51b5b7ea.js",
     "static/js/453.91b529d8.chunk.js": "/phmc-death-report/static/js/453.91b529d8.chunk.js",
     "static/media/feedback.png": "/phmc-death-report/static/media/feedback.749299dd3d7b9dcc39a5.png",
     "static/media/myPaperwork2.png": "/phmc-death-report/static/media/myPaperwork2.d2d61eeb95f05e33b36f.png",
     "index.html": "/phmc-death-report/index.html",
-    "main.ce8d9c35.css.map": "/phmc-death-report/static/css/main.ce8d9c35.css.map",
-    "main.87a4ab78.js.map": "/phmc-death-report/static/js/main.87a4ab78.js.map",
+    "main.d4a6a209.css.map": "/phmc-death-report/static/css/main.d4a6a209.css.map",
+    "main.51b5b7ea.js.map": "/phmc-death-report/static/js/main.51b5b7ea.js.map",
     "453.91b529d8.chunk.js.map": "/phmc-death-report/static/js/453.91b529d8.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.ce8d9c35.css",
-    "static/js/main.87a4ab78.js"
+    "static/css/main.d4a6a209.css",
+    "static/js/main.51b5b7ea.js"
   ]
 }
