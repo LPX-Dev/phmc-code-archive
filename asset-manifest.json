@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/phmc-death-report/static/css/main.c7038e71.css",
+    "main.css": "/phmc-death-report/static/css/main.5579f588.css",
     "main.js": "/phmc-death-report/static/js/main.e94ffaa9.js",
     "static/js/453.91b529d8.chunk.js": "/phmc-death-report/static/js/453.91b529d8.chunk.js",
     "static/media/fa-solid-900.ttf": "/phmc-death-report/static/media/fa-solid-900.2582b0e4bcf85eceead0.ttf",
@@ -14,12 +14,12 @@
     "static/media/fa-v4compatibility.ttf": "/phmc-death-report/static/media/fa-v4compatibility.da94ef451f4969af06e6.ttf",
     "static/media/fa-v4compatibility.woff2": "/phmc-death-report/static/media/fa-v4compatibility.ea8f94e1d22e0d35ccd4.woff2",
     "index.html": "/phmc-death-report/index.html",
-    "main.c7038e71.css.map": "/phmc-death-report/static/css/main.c7038e71.css.map",
+    "main.5579f588.css.map": "/phmc-death-report/static/css/main.5579f588.css.map",
     "main.e94ffaa9.js.map": "/phmc-death-report/static/js/main.e94ffaa9.js.map",
     "453.91b529d8.chunk.js.map": "/phmc-death-report/static/js/453.91b529d8.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.c7038e71.css",
+    "static/css/main.5579f588.css",
     "static/js/main.e94ffaa9.js"
   ]
 }
