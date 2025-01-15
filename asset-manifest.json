@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/phmc-death-report/static/css/main.ea5b17e5.css",
+    "main.css": "/phmc-death-report/static/css/main.ca46ad4f.css",
     "main.js": "/phmc-death-report/static/js/main.f12b355d.js",
     "static/js/453.91b529d8.chunk.js": "/phmc-death-report/static/js/453.91b529d8.chunk.js",
     "static/media/fa-solid-900.ttf": "/phmc-death-report/static/media/fa-solid-900.2582b0e4bcf85eceead0.ttf",
@@ -18,12 +18,12 @@
     "static/media/fa-v4compatibility.ttf": "/phmc-death-report/static/media/fa-v4compatibility.da94ef451f4969af06e6.ttf",
     "static/media/fa-v4compatibility.woff2": "/phmc-death-report/static/media/fa-v4compatibility.ea8f94e1d22e0d35ccd4.woff2",
     "index.html": "/phmc-death-report/index.html",
-    "main.ea5b17e5.css.map": "/phmc-death-report/static/css/main.ea5b17e5.css.map",
+    "main.ca46ad4f.css.map": "/phmc-death-report/static/css/main.ca46ad4f.css.map",
     "main.f12b355d.js.map": "/phmc-death-report/static/js/main.f12b355d.js.map",
     "453.91b529d8.chunk.js.map": "/phmc-death-report/static/js/453.91b529d8.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.ea5b17e5.css",
+    "static/css/main.ca46ad4f.css",
     "static/js/main.f12b355d.js"
   ]
 }
