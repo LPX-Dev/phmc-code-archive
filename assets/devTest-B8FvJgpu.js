@@ -1,0 +1,2 @@
+import{j as e}from"./bootstrap-BmKVvN9Q.js";import"./react-7MU6i0XA.js";const r=({onFormChange:a})=>{const t=n=>{a(n.target.name,n.target.value)};return e.jsxs("div",{children:[e.jsx("input",{type:"text",name:"test_field_1",onChange:t,placeholder:"Test Field 1"}),e.jsx("input",{type:"text",name:"test_field_2",onChange:t,placeholder:"Test Field 2"})]})};export{r as default};
+//# sourceMappingURL=devTest-B8FvJgpu.js.map

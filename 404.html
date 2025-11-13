@@ -1,21 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="utf-8" />
-    <title>Redirecting...</title>
+  <head>
+    <meta charset="UTF-8" />
     <script type="text/javascript">
-        // This script redirects all 404s to the root of the single-page app,
-        // passing the originally requested path via sessionStorage.
-
-        // Store the path the user tried to access (e.g., /forms/cctv).
-        sessionStorage.setItem('redirectPath', window.location.pathname);
-
-        // Redirect to the absolute base path of the application.
-        // For gtaw-forms.github.io/forms/, this is '/forms/'.
-        window.location.replace('/forms/');
+      // Prevent infinite redirect loop for /forms/* routes
+      (function() {
+        var pathname = window.location.pathname;
+        var search = window.location.search;
+        var hash = window.location.hash;
+        // Only redirect if not already at /forms or a subroute
+        if (!/^\/forms(\/|$)/.test(pathname)) {
+          var redirectUrl = '/forms' + pathname + search + hash;
+          window.location.replace(redirectUrl);
+        }
+      })();
     </script>
-</head>
-<body>
-    <p>If you are not being redirected, please <a href="/forms/">click here to go to the homepage</a>.</p>
-</body>
+    <title>Redirecting...</title>
+  </head>
+  <body>
+    <h1>Redirecting...</h1>
+    <p>If you are not redirected automatically, <a href="/forms/">click here</a>.</p>
+  </body>
 </html>
